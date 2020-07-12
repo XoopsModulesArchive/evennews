@@ -1,0 +1,41 @@
+<script language="JavaScript">
+<!--
+function check_req_fields(form) {
+	var errmsg = '';
+	if (form.user_nick.value.length == 0 || form.user_nick.value == '<{$lang_enter_surname}>')
+		errmsg += ' - Nick Name';
+	if (form.user_mail.value.length == 0 || form.user_mail.value == '<{$lang_enter_email}>')
+		errmsg += ' - Email Address';
+	if (errmsg == '') {
+		return true;
+	} else {
+		msg = '<{$lang_enter_fields}>:\n' + errmsg;
+		alert(msg);
+		return false;
+	}
+}
+//-->
+</script>
+<h4><{$en_title}></h4>
+<form action='<{$en_form_action}>' method='post' onsubmit='return check_req_fields(this)'>
+<table cellspacing='1' id='subscribe' class = "outer">
+<tr><td class = "head"><{$lang_name}></td>
+<td class = "even"><input name='user_name' type='text' size='60' maxlength='120' value='<{$en_realname}>'></td></tr>
+<tr>
+  <td class = "head">*<{$lang_nickname}></td>
+  <td class = "even"><input type='text' name='user_nick' size='60' maxlength='40' value='<{$en_username}>'></td></tr>
+<tr><td class = "head"><span class="req">*</span><{$lang_email}></td>
+<td class = "even"><input type='text' name='user_mail' size='60' maxlength='80' value='<{$en_email}>'></td></tr>
+<tr>
+<td class = "head"><{$lang_emailtype}></td>
+<td class = "even"><{$lang_emailhtml}><input type='radio' value='0' checked name='user_format'> <{$lang_emailtxt}><input type='radio' value='1' name='user_format' ></td>
+</tr>
+<tr>
+<td class = "head"><{$lang_new_user}></td>
+<td class = "even"><{$lang_email_new_user}><input type='radio' value='0' checked name='user_confirm'> <{$lang_email_confirm}><input type='radio' value='1' name='user_confirm' ></td>
+</tr>
+<tr><td class = "head"><input type=submit name='subscribe' value='<{$lang_submit_button}>'></td><td class = "even"><span class="req"><{$lang_denote}></span></td></tr>
+</table>
+<input type='hidden' name='action' value='subscribe_conf'>
+</form>
+<div id="en_disclaimer"><{$EN_DISCLAIMER}></div>		

@@ -1,0 +1,27 @@
+<script language="JavaScript">
+<!--
+function check_req_fields(form) {
+	var errmsg = '';
+	if (form.user_mail.value.length == 0 || form.user_mail.value == '[enter your email address]')
+		errmsg += ' - Email Address';
+	if (errmsg == '') {
+		return true;
+	} else {
+		msg = 'You must fill out the following fields:' + errmsg;
+		alert(msg);
+		return false;
+	}
+}
+//-->
+</script>
+<h4><{$en_title}></h4>
+<form action='<{$en_form_action}>' method='post' onsubmit='return check_req_fields(this)'>
+<table width='50%' border='0' cellpadding='2' cellspacing='1' class = "outer">
+<tr>
+  <td class = "head"><{$lang_emailadress}>:</th>
+  <td class = "even"><input type='text' name='user_mail' size='60' maxlength='80' value='<{$en_email}>'
+	onfocus='javascript:if (this.value=="[enter your email address]") {this.value="";}'></td></tr>
+</table>
+<div><input type='submit' name='unsubscribe' value='<{$lang_unsubscribe}>'></div>
+<input type=hidden name='action' value='unsubscribe_conf'>
+</form>
